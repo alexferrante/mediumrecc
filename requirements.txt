@@ -1,0 +1,6 @@
+lxml==2.22.0
+requests==4.34
+BeautifulSoup=
+pandas=
+datetime
+cld2-cffi
