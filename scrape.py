@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from datetime import date, timedelta
 
 def init_values():
-      df = pd.DataFrame(columns=["id", "url", "headline", "tags"])
+      df = pd.DataFrame(columns=["id", "url", "headline", "tags", "content"])
       base = "https://medium.com/sitemap/posts/2019/posts-"
 
       startDate = date(2019, 1, 1)
