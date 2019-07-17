@@ -26,7 +26,7 @@ def init_values():
                         if inspect_language(article_title):
                               dfObj = populate_dataset(page.get_text())
                               df = df.append(dfObj, ignore_index=True)
-                              print(df)
+      df.to_csv('medium_dataset', sep='\t')
 
 def inspect_language(text):
       isReliable, textBytesFound, details = cld2.detect(text)
@@ -39,6 +39,7 @@ def inspect_language(text):
 
 def populate_dataset(url):
       # optimize this later, currently slow
+      # ultimately not storing article content in db, pass to be analyzed in place and store computed values
       res = requests.get(url)
       soup = BeautifulSoup(res.content)
       article_content = soup.find("article").get_text()
