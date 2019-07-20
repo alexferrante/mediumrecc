@@ -38,17 +38,17 @@ def inspect_language(text):
             return False
 
 def populate_dataset(url):
-      # optimize this later, currently slow
-      # ultimately not storing article content in db, pass to be analyzed in place and store computed values
+      print("Populating dataset with ", url, "...")
       res = requests.get(url)
       soup = BeautifulSoup(res.content)
-      article_content = soup.find("article").get_text()
+      #article_content = soup.find("article").get_text() article content can be accessed here
       for meta_data in soup.findAll("script", attrs={"data-rh": "true", "type": "application/ld+json"}):
+            print("Collecting article metadata...")
             meta_data = json.loads(meta_data.get_text())
             tags = list(filter(lambda x: "Tag" in x, meta_data["keywords"]))
             tags = [tag.split(":")[1] for tag in tags]
             if inspect_language(" ".join(str(x) for x in tags)) is False:
                   continue
-            return {"id": meta_data["articleId"], "url": url, "headline": meta_data["headline"], "tags":tags, "content": article_content}
+            return {"id": meta_data["articleId"], "url": url, "headline": meta_data["headline"], "tags":tags}
 
 init_values()

@@ -32,11 +32,3 @@ def remove_stop_words(tokenized_text):
 def to_lowercase(tokenized_text):
     return ' '.join([word.lower() for text)])
  
-def remove_common():
-    print()
-
-def remove_rare():
-    print()
-
-def lemmatization():
-    print()
