@@ -2,7 +2,6 @@ import re
 import nltk
 from nltk.corpus import stopwords
 from string import punctuation
-from symspellpy.symspellpy import SymSpell 
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 
