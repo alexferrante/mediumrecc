@@ -4,16 +4,7 @@ from nltk.corpus import stopwords
 from string import punctuation
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
-
-def main(text):
-    remove_non_ascii(text)
-    remove_punctuation(text)
-    remove_numbers(text)
-    text = w_tokenize(text)
-    to_lowercase(text)
-    remove_stop_words(text)
-    lemmatization(text)
-   
+ 
 def remove_non_ascii(text):
     return text.encode("ascii", errors="ignore").decode()
 
