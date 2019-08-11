@@ -1,3 +1,4 @@
+import pandas as pd
 import re
 import nltk
 from nltk.corpus import stopwords
@@ -5,6 +6,8 @@ from string import punctuation
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
  
+def clean_data(df, verbose=False, write=False):
+  if verbose:
 def remove_non_ascii(text):
     return text.encode("ascii", errors="ignore").decode()
 
